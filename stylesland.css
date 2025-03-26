@@ -1,0 +1,122 @@
+/* Reset some basic styles */
+* {
+    margin: auto;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+
+  }
+  #about {
+    margin-top: 100px;
+  }
+  body {
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Header and Navbar */
+  #header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  #header-img {
+    height: 50px;
+    margin-right: 1px;
+  }
+  
+  #nav-bar {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .nav-link {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .nav-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Main Content */
+  main {
+    margin-top: 80px; /* Space for the fixed header */
+    padding: 20px;
+  }
+  
+  
+  
+  /* Form Styling */
+  #form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin-top: 100px;
+  }
+  
+  #email {
+    width: 100%;
+    height: 40px; /* Try a larger height for visibility */
+    padding: 10px;
+    color: black;
+    margin: 10px 0;
+    border: 1px solid black;
+  }
+  
+  #submit {
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #submit:hover {
+    background-color: #555;
+  }
+  ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+  }
+  .card {
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 350px;
+  }
+  ul img {
+    width: 300px;
+    height: 200px;
+  }
+  iframe {
+    text-align: center;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    #header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    #nav-bar {
+      margin-top: 10px;
+    }
+  
+    #form {
+      width: 100%;
+    }
+  }
+  
