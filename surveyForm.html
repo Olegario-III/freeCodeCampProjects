@@ -67,7 +67,7 @@ input[type="radio"], input[type="checkbox"] {
       <label id="name-label" for="name">Name<br></label><input type="text" placeholder="Enter your name" id="name" required>
       <label id="email-label" for="email"><br>Email<br></label><input placeholder="Enter your email" type="email" id="email" required>
       <label id="number-label" for="number"><br>Number<br></label><input type="number" placeholder="Enter a number" id="number" min="10" max="10000000000"><br>
-      <select id="dropdown">
+      <select id="dropdown" name="dropdown">
         <option value="">Choose an option</option>
         <option value="1">Option number 1</option>
         <option value="2">Option number 2</option>
@@ -79,11 +79,11 @@ input[type="radio"], input[type="checkbox"] {
       <input type="radio" value="yes" name="q2">Yes
       <input type="radio" value="no" name="q2">No
       <p>Things you like doing</p>
-      <label><input type="checkbox" value="sleeping" />Sleeping<br></label>
-      <label><input type="checkbox" value="eating" />Eating<br></label>
-      <label><input type="checkbox" value="watching" />Watching tv<br></label>
-      <label><input type="checkbox" value="sitting" />Sitting<br></label>
-      <p>Tell me more about yourself</p><textarea placeholder="just say whatever you want"></textarea><br>
+      <label><input type="checkbox" name="sleeping" value="sleeping" />Sleeping<br></label>
+      <label><input type="checkbox" name="eating" value="eating" />Eating<br></label>
+      <label><input type="checkbox" name="watching" value="watching" />Watching tv<br></label>
+      <label><input type="checkbox" name="sitting" value="sitting" />Sitting<br></label>
+      <p>Tell me more about yourself</p><textarea name="more" placeholder="just say whatever you want"></textarea><br>
       <input type="submit" id="submit">
     </form>
   </body>
