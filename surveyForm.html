@@ -87,5 +87,28 @@ input[type="radio"], input[type="checkbox"] {
       <p>Tell me more about yourself</p><textarea name="more" placeholder="just say whatever you want"></textarea><br>
       <input type="submit" id="submit">
     </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+  emailjs.init("-G9qJJOlxnwIbciRX"); // Replace with your EmailJS public key
+
+  document.getElementById("survey-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const formData = {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      message: "Thank you for your submission! We will get back to you soon.",
+    };
+
+    emailjs.send("service_12znkc5", "template_4llmgm8", formData)
+      .then(() => {
+        alert("Autoresponse sent!");
+      })
+      .catch((error) => {
+        console.error("Error sending email:", error);
+      });
+  });
+</script>
   </body>
 </html>
