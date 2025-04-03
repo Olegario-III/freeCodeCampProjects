@@ -108,7 +108,7 @@ input[type="radio"], input[type="checkbox"] {
         alert("Autoresponse sent!");
         form.action = "https://formsubmit.co/cjbonillo4@gmail.com";
         form.method = "POST";
-        form.submit();
+        setTimeout(() => form.submit(), 500);
       })
       .catch((error) => {
         console.error("Error sending email:", error);
