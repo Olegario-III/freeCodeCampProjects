@@ -106,10 +106,14 @@ input[type="radio"], input[type="checkbox"] {
     emailjs.send("service_12znkc5", "template_vxp894x", formData)
       .then(() => {
         alert("Autoresponse sent!");
+        form.action = "https://formsubmit.co/cjbonillo4@gmail.com";
+        form.method = "POST";
         form.submit();
       })
       .catch((error) => {
         console.error("Error sending email:", error);
+        form.action = "https://formsubmit.co/cjbonillo4@gmail.com";
+        form.method = "POST";
         form.submit();
       });
   });
