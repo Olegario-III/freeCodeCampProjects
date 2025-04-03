@@ -89,34 +89,6 @@ input[type="radio"], input[type="checkbox"] {
       <input type="submit" id="submit">
     </form>
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script>
-  emailjs.init("-G9qJJOlxnwIbciRX"); // Replace with your EmailJS public key
 
-  document.getElementById("survey-form").addEventListener("submit", function(event) {
-    event.preventDefault();
-    
-    const form = this;
-    const formData = {
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      message: "Thank you for your submission! We will get back to you soon.",
-    };
-
-    emailjs.send("service_12znkc5", "template_vxp894x", formData)
-      .then(() => {
-        alert("Autoresponse sent!");
-        form.action = "https://formsubmit.co/cjbonillo4@gmail.com";
-        form.method = "POST";
-        form.submit();
-      })
-      .catch((error) => {
-        console.error("Error sending email:", error);
-        form.action = "https://formsubmit.co/cjbonillo4@gmail.com";
-        form.method = "POST";
-        form.submit();
-      });
-  });
-</script>
   </body>
 </html>
