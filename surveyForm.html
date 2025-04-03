@@ -106,11 +106,11 @@ input[type="radio"], input[type="checkbox"] {
     emailjs.send("service_12znkc5", "template_4llmgm8", formData)
       .then(() => {
         alert("Autoresponse sent!");
-        form.submit;
+        form.submit();
       })
       .catch((error) => {
         console.error("Error sending email:", error);
-        form.submit;
+        form.submit();
       });
   });
 </script>
