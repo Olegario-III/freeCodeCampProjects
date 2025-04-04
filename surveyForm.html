@@ -104,12 +104,18 @@ input[type="radio"], input[type="checkbox"] {
     emailjs.send("service_12znkc5", "template_vxp894x", formData)
       .then(() => {
         alert("Autoresponse sent!");
+        window.location.href = "thankyou.html";
       })
       .catch((error) => {
         console.error("Error sending email:", error);
+        window.location.href = "thankyou.html";
       });
   });
 
+</script>
+<script>
+  let myVariable = document.getElementById("name").value;
+  localStorage.setItem("sharedVariable", myVariable);
 </script>
   </body>
 </html>
