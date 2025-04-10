@@ -90,6 +90,21 @@
             border-radius: 10px;
             transition: transform 0.3s ease;
         }
+        .project-card::after, .project-card::before {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-image: conic-gradient(from var(--angle), red, blue, yellow, green, violet, red);
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            z-index: -1;
+            padding: 3px;
+            animation: 3s spin linear infinite;
+        }
+        .project-card::before{
+            filter: blur(1.5rem);
+        }
         .project-card:hover {
             transform: scale(1.05);
         }
@@ -180,6 +195,7 @@
         }
         #pic {
             display: flex;
+            margin: 50px;
             justify-content: center;
         }
         .pic-container {
