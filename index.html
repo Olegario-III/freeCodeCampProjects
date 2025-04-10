@@ -9,6 +9,11 @@
             margin: 0;
             font-family: Arial, sans-serif;
         }
+        @property --angle{
+            syntax: "<angle>";
+            initial-value: 0deg;
+            inherits: false;
+        }
         header {
             background: linear-gradient(to right, #008080, #4A90E2);
             padding: 20px;
@@ -98,7 +103,7 @@
             background-image: conic-gradient(from var(--angle), red, blue, yellow, green, violet, red);
             top: 50%;
             left: 50%;
-            translate: -50% -50%;
+            transform: translate(-50% -50%);
             z-index: 1000;
             padding: 3px;
             animation: 3s spin linear infinite;
@@ -203,11 +208,7 @@
             position: relative;
             margin: auto;
         }
-        @property --angle{
-            syntax: "<angle>";
-            initial-value: 0deg;
-            inherits: false;
-        }
+        
         .pic-container::after, .pic-container::before{
             content: '';
             position: absolute;
@@ -216,7 +217,7 @@
             background-image: conic-gradient(from var(--angle), transparent 70%, blue);
             top: 50%;
             left: 50%;
-            translate: -50% -50%;
+            transform: translate(-50% -50%);
             z-index: -1;
             animation: 3s spin linear infinite;
         }
@@ -246,7 +247,7 @@
     </header>
     <section id="pic">
         <div class="pic-container">
-        <img src="image\20230825_103008.jpg" class="pic1" alt="owner's profile picture">
+        <img src="image/20230825_103008.jpg" class="pic1" alt="owner's profile picture">
         </div>
     </section>
     <section id="intro">
