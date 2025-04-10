@@ -173,7 +173,7 @@
             color: #4A90E2;
         }
         .pic1 {
-            margin: 10px;
+            margin: 5px;
             height: 300px;
             width: 200px;
             position: relative;
@@ -184,17 +184,22 @@
         }
         .pic-container {
             position: relative;
+            margin: auto;
         }
-        .pic-container::after{
+        .pic-container::after, .pic-container::before{
             content: '';
             position: absolute;
             height: 100%;
             width: 100%;
-            background-image: conic-gradient(red, blue, yellow, red);
+            background-image: conic-gradient(red, blue, yellow, violet, red);
             top: 50%;
             left: 50%;
             translate: -50% -50%;
             z-index: -1;
+        }
+        .pic-container::before {
+            filter: blur(1.5rem);
+            opacity: 0.5;
         }
     </style>
 </head>
