@@ -174,10 +174,10 @@
         }
         .pic1 {
             border: 5px solid black;
-            text-align: center;
             margin: 10px;
             height: 300px;
             width: 200px;
+            position: relative;
         }
         #pic {
             display: flex;
@@ -185,6 +185,13 @@
         }
         .pic-container {
             
+        }
+        .pic1::after{
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background: red;
         }
     </style>
 </head>
