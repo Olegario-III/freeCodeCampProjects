@@ -93,7 +93,7 @@
         #projects {
             padding: 40px 20px;
             background: #f9f9f9;
-            z-index: -10;
+            /* z-index: -10; */
             position: relative;
         }
 
@@ -106,7 +106,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-            z-index: -5;
+            z-index: auto;
         }
 
         .project-card {
@@ -114,33 +114,40 @@
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
-            z-index: 1;
+            z-index: 20;
+            margin: 5px;
+            display: block;
+            position: static;
             transition: transform 0.3s ease;
         }
 
         .project-card-wrapper {
             position: relative;
+            z-index: 1;
+            display: block;
+            height: 100%;
+            width: 100%;
         }
 
-        .project-card-wrapper::after,
-        .project-card-wrapper::before {
+        .animated-border{
             content: '';
             position: absolute;
+            border: 2px solid lime;
             height: 100%;
             width: 100%;
             background-image: conic-gradient(from var(--angle), red, blue, yellow, green, violet, red);
             top: 50%;
             left: 50%;
+            pointer-events: none;
             transform: translate(-50%, -50%);
-            z-index: -1;
-            padding: 3px;
+            z-index: -9;
             border-radius: 10px;
             animation: 3s spin linear infinite;
         }
 
-        .project-card-wrapper::before {
+        /* .project-card-wrapper::before {
             filter: blur(1.5rem);
-        }
+        } */
 
         .project-card:hover {
             transform: scale(1.05);
@@ -358,6 +365,7 @@
         <h2>My Projects</h2>
         <div class="project-grid">
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="catphotoapp.html" target="_blank">
                     <div class="project-card">
                         <h3>Cat Photo App</h3>
@@ -366,6 +374,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="cafeMenu.html" target="_blank">
                     <div class="project-card">
                         <h3>Cafe Menu</h3>
@@ -374,6 +383,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="colorMarker.html" target="_blank">
                     <div class="project-card">
                         <h3>Colored Markers</h3>
@@ -382,6 +392,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="registrationForm.html" target="_blank">
                     <div class="project-card">
                         <h3>Registration Form</h3>
@@ -390,6 +401,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="surveyForm.html" target="_blank">
                     <div class="project-card">
                         <h3>Survey Form</h3>
@@ -398,6 +410,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="rothkoPainting.html" target="_blank">
                     <div class="project-card">
                         <h3>Rothko Painting</h3>
@@ -406,6 +419,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="photoGallery.html" target="_blank">
                     <div class="project-card">
                         <h3>Photo Gallery</h3>
@@ -414,6 +428,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="nutritionLabel.html" target="_blank">
                     <div class="project-card">
                         <h3>Nutrition Label</h3>
@@ -422,6 +437,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="buildingQuiz.html" target="_blank">
                     <div class="project-card">
                         <h3>Building Quiz</h3>
@@ -430,6 +446,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="tribute.html" target="_blank">
                     <div class="project-card">
                         <h3>Tribute Page</h3>
@@ -438,6 +455,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="balanceSheet.html" target="_blank">
                     <div class="project-card">
                         <h3>Balance sheet</h3>
@@ -446,6 +464,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="catPainting.html" target="_blank">
                     <div class="project-card">
                         <h3>Cat Painting</h3>
@@ -454,6 +473,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="piano.html" target="_blank">
                     <div class="project-card">
                         <h3>Piano</h3>
@@ -462,6 +482,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="tech.html" target="_blank">
                     <div class="project-card">
                         <h3>Technical Documentation</h3>
@@ -470,6 +491,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="skyline.html" target="_blank">
                     <div class="project-card">
                         <h3>City Skyline</h3>
@@ -478,6 +500,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="magazine.html" target="_blank">
                     <div class="project-card">
                         <h3>Magazine</h3>
@@ -486,6 +509,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="landing.html" target="_blank">
                     <div class="project-card">
                         <h3>Product Landing Page</h3>
@@ -494,6 +518,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="ferrisWheel.html" target="_blank">
                     <div class="project-card">
                         <h3>Ferris Wheel</h3>
@@ -502,6 +527,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="penguin.html" target="_blank">
                     <div class="project-card">
                         <h3>Penguin</h3>
@@ -510,6 +536,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="news.html" target="_blank">
                     <div class="project-card">
                         <h3>Edunews</h3>
@@ -518,6 +545,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="colorChanger.html" target="_blank">
                     <div class="project-card">
                         <h3>Color Changer</h3>
@@ -526,6 +554,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="gradeBook.html" target="_blank">
                     <div class="project-card">
                         <h3>Gradebook</h3>
@@ -534,6 +563,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="musicPlayer.html" target="_blank">
                     <div class="project-card">
                         <h3>Music Player</h3>
@@ -542,6 +572,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="pyramidMaker.html" target="_blank">
                     <div class="project-card">
                         <h3>Pyramid Maker</h3>
@@ -550,6 +581,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="rockPaperScissor.html" target="_blank">
                     <div class="project-card">
                         <h3>Rock Paper Scissor Game</h3>
@@ -558,6 +590,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="rolePlayingGame.html" target="_blank">
                     <div class="project-card">
                         <h3>Role Playing Game</h3>
@@ -566,6 +599,7 @@
                 </a>
             </div>
             <div class="project-card-wrapper">
+                <div class="animated-border"></div>
                 <a href="calorieCounter.html" target="_blank">
                     <div class="project-card">
                         <h3>Calorie Counter</h3>
@@ -588,7 +622,7 @@
         <div class="social-links">
             <a href="https://www.facebook.com/gary.aleno" target="_blank">Facebook</a>
             <a href="https://www.freecodecamp.org/Olegario" target="_blank">FreeCodeCamp</a>
-            <a href="https://github.com/Olegario-III">Github</a>
+            <a href="https://github.com/Olegario-III" target="_blank">Github</a>
         </div>
     </footer>
     <button id="scroll-to-top" onclick="scrollToTop()">↑</button>
