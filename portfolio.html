@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles16.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav id="navbar">
+      <ul>
+        <li><a href="#welcome-section">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Welcome -->
+    <header id="welcome-section">
+      <h1>Welcome, Visitor 👋</h1>
+      <p>I’m learning web development and here’s a showcase of my journey.</p>
+    </header>
+
+    <!-- Projects -->
+    <main>
+      <section id="projects">
+        <h2 class="project-title">My Projects</h2>
+        <div class="project-grid">
+          <a
+            class="project-title"
+            href="tribute.html"
+            target="_blank"
+          >
+            <img
+              src="https://myhero.com/content/images/thumbs/0123582_jose-rizal.png"
+              alt="Tribute Page for Jose Rizal"
+            />
+            <p>Tribute Page</p>
+          </a>
+
+          <a class="project-tile" href="landing.html" target="_blank">
+            <img
+              src="C:\Users\gary\Desktop\freecodecamp portfolio\freeCodeCampProjects\image\bricks.png"
+              alt="Luxurios Bricks"
+            />
+            <p>Expensive Bricks</p>
+          </a>
+
+         
+          </a>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Let’s connect! You can reach me through:</p>
+        <div class="contact-links">
+          <a
+            id="profile-link"
+            href="https://www.freecodecamp.org/Olegario"
+            target="_blank"
+            aria-label="FreeCodeCamp profile"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/3/39/FreeCodeCamp_logo.png"
+              alt="FreeCodeCamp Logo"
+              width="60"
+            />
+          </a>
+          <a
+            href="mailto:cjbonillo4@gmail.com"
+            target="_blank"
+            aria-label="Send me an email"
+          >
+            📧
+          </a>
+          <a
+            href="https://github.com/Olegario-III"
+            target="_blank"
+            aria-label="GitHub profile"
+          >
+            🐙
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 Olegario – Built with ❤️ and continuous learning.</p>
+    </footer>
+
+    <button id="theme-toggle">🌙</button>
+
+<script>
+  const toggleBtn = document.getElementById("theme-toggle");
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    toggleBtn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+  });
+</script>
+  </body>
+</html>

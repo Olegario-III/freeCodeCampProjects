@@ -1,0 +1,180 @@
+/* =========================
+   Base Styles
+========================= */
+:root {
+  --bg-light: #f9f9f9;
+  --bg-dark: #121212;
+  --text-light: #222;
+  --text-dark: #f9f9f9;
+  --accent: #4cafef;
+  --transition: 0.3s ease;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg-light);
+  color: var(--text-light);
+  line-height: 1.6;
+  transition: background var(--transition), color var(--transition);
+}
+
+/* Dark mode */
+body.dark {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+/* =========================
+   Navbar
+========================= */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--accent);
+  padding: 0.75rem 1rem;
+  z-index: 1000;
+}
+
+#navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+#navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color var(--transition);
+}
+
+#navbar a:hover {
+  color: #222;
+}
+
+/* =========================
+   Welcome Section
+========================= */
+#welcome-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+#welcome-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+/* =========================
+   Projects
+========================= */
+#projects {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.project-tile {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition), box-shadow var(--transition);
+  text-decoration: none;
+  color: inherit;
+}
+
+body.dark .project-tile {
+  background: #1f1f1f;
+}
+
+.project-tile img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.project-tile p {
+  padding: 1rem;
+  font-weight: bold;
+}
+
+.project-tile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================
+   Contact
+========================= */
+#contact {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.contact-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 2rem;
+}
+
+.contact-links a {
+  transition: transform var(--transition);
+}
+
+.contact-links a:hover {
+  transform: scale(1.2);
+}
+
+/* =========================
+   Footer
+========================= */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: var(--accent);
+  color: white;
+  margin-top: 3rem;
+}
+
+/* =========================
+   Dark Mode Toggle Button
+========================= */
+#theme-toggle {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background var(--transition), transform var(--transition);
+}
+
+#theme-toggle:hover {
+  background: #3a9fd9;
+  transform: scale(1.05);
+}
