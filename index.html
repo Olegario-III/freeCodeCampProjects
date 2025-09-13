@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Olegario's Portfolio</title>
     <style>
+        html {
+  scroll-behavior: smooth;
+}
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -250,8 +253,8 @@
         }
 
         .certificate {
-            height: 500px;
-            width: 700px;
+            height: 300px;
+            width: 500px;
             margin: 10px;
             border: 3px solid black;
         }
@@ -261,6 +264,7 @@
             justify-content: space-around;
             flex-wrap: wrap;
             margin-bottom: 20px;
+            object-fit: contain;
         }
 
         #certificate h2 {
@@ -304,6 +308,96 @@
             filter: blur(1.5rem);
             opacity: 0.5;
         }
+
+
+        .contact {
+  padding: 60px 20px;
+  text-align: center;
+  background: var(--card-bg, #f9f9f9);
+  border-radius: 12px;
+  margin: 40px auto;
+  max-width: 800px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.contact p {
+  margin-bottom: 30px;
+  color: #666;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.contact-form textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+.contact-form button {
+  background: #0077ff;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: #005fcc;
+}
+
+.social-links {
+  margin-top: 20px;
+}
+
+.social-links a {
+  margin: 0 10px;
+  color: #0077ff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+}
+
+/* Dark mode support */
+body.dark-mode .contact {
+  background: #1e1e1e;
+  color: #f1f1f1;
+}
+
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+  background: #2a2a2a;
+  border: 1px solid #444;
+  color: #f1f1f1;
+}
+
+body.dark-mode .contact-form button {
+  background: #2196f3;
+}
+
 
         @keyframes spin {
             from {
@@ -951,7 +1045,7 @@
                 <a href="https://codepen.io/Olegario-III-Ale-o/pen/PwwPaeO" target="_blank">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="" alt="random qoute machine Preview">
+                            <img src="image2/qouteViewerImg.png" alt="random qoute machine Preview">
                         </div>
                         <h3>Random Quote Machine</h3>
                     </div>
@@ -962,7 +1056,7 @@
                 <a href="https://codepen.io/Olegario-III-Ale-o/pen/oggYGxE" target="_blank">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="" alt="markdown Preview Preview">
+                            <img src="image2/markdownPreviewImg.png" alt="markdown Preview Preview">
                         </div>
                         <h3>Markdown Previewer</h3>
                     </div>
@@ -973,7 +1067,7 @@
                 <a href="https://codepen.io/Olegario-III-Ale-o/pen/RNNZRme" target="_blank">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="" alt="drum machine Preview">
+                            <img src="image2/drumMachineImg.png" alt="drum machine Preview">
                         </div>
                         <h3>Drum Machine</h3>
                     </div>
@@ -984,7 +1078,7 @@
                 <a href="https://codepen.io/Olegario-III-Ale-o/pen/NPPveGK" target="_blank">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="" alt="JavaScript calculator Preview">
+                            <img src="image2/jsCalculatorImg.png" alt="JavaScript calculator Preview">
                         </div>
                         <h3>JavaScript Calculator</h3>
                     </div>
@@ -995,7 +1089,7 @@
                 <a href="https://codepen.io/Olegario-III-Ale-o/pen/JooLpZO" target="_blank">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="" alt="25 + 5 clock Preview">
+                            <img src="image2/pomodoroTimerImg.png" alt="25 + 5 clock Preview">
                         </div>
                         <h3>25 + 5 Clock</h3>
                     </div>
@@ -1018,7 +1112,7 @@
                 <a href="https://codepen.io/Olegario-III-Ale-o/pen/gbbzdvm" target="_blank">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="" alt="bar chart Preview">
+                            <img src="image2/barChartImg.png" alt="bar chart Preview">
                         </div>
                         <h3>Bar Chart</h3>
                     </div>
@@ -1029,7 +1123,7 @@
                 <a href="https://codepen.io/Olegario-III-Ale-o/pen/vEErXxE" target="_blank">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="" alt="scatterplot graph Preview">
+                            <img src="image2/scatterplotImg.png" alt="scatterplot graph Preview">
                         </div>
                         <h3>Scatterplot Graph</h3>
                     </div>
@@ -1040,7 +1134,7 @@
                 <a href="https://codepen.io/Olegario-III-Ale-o/pen/OPPwPKm" target="_blank">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="" alt="heat map Preview">
+                            <img src="image2/heatMapImg.png" alt="heat map Preview">
                         </div>
                         <h3>Heat Map</h3>
                     </div>
@@ -1051,7 +1145,7 @@
                 <a href="https://codepen.io/Olegario-III-Ale-o/pen/yyyxgrO" target="_blank">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="" alt="Choropleth map Preview">
+                            <img src="image2/choroplethMapImg.png" alt="Choropleth map Preview">
                         </div>
                         <h3>Choropleth Map</h3>
                     </div>
@@ -1062,7 +1156,7 @@
                 <a href="https://codepen.io/Olegario-III-Ale-o/pen/WbbgqyW" target="_blank">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="" alt="Treemap Diagram Preview">
+                            <img src="image2/treeMapDiagramImg.png" alt="Treemap Diagram Preview">
                         </div>
                         <h3>Treemap Diagram</h3>
                     </div>
@@ -1101,6 +1195,24 @@
             <img src="image/Think Creatively with AI_certificate.jpg" class="certificate">
         </div>
     </section>
+
+    <section id="contact" class="contact">
+  <h2>📬 Contact Me</h2>
+  <p>If you'd like to collaborate or have any questions, feel free to reach out!</p>
+
+  <form class="contact-form" action="https://formspree.io/f/mwpnzyjy" method="POST">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  <button type="submit">Send Message</button>
+</form>
+
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/olegario-iii-ale%C3%B1o-36550a322/" target="_blank">LinkedIn</a>
+    <a href="mailto:cjbonillo4@gmail.com">Email</a>
+  </div>
+</section>
+
     <footer id="footer">
         <p>&copy; 2025 Olegario. All rights reserved.</p>
         <div class="social-links">
@@ -1132,6 +1244,26 @@
             document.documentElement.scrollTop = 0;
         }
     </script>
+    <script>
+const form = document.querySelector(".contact-form");
+
+form.addEventListener("submit", async function(event) {
+  event.preventDefault();
+  const data = new FormData(form);
+  const response = await fetch(form.action, {
+    method: form.method,
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  });
+
+  if (response.ok) {
+    alert("✅ Thank you! Your message has been sent.");
+    form.reset();
+  } else {
+    alert("❌ Oops! Something went wrong. Please try again.");
+  }
+});
+</script>
 </body>
 
 </html>
