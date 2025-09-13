@@ -5,254 +5,303 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calorie Counter</title>
     <style>
-        :root {
-  --light-grey: #f5f6f7;
-  --dark-blue: #0a0a23;
-  --fcc-blue: #1b1b32;
-  --light-yellow: #fecc4c;
-  --dark-yellow: #feac32;
-  --light-pink: #ffadad;
-  --dark-red: #850000;
-  --light-green: #acd157;
-}
+      :root {
+        --light-grey: #f5f6f7;
+        --dark-blue: #0a0a23;
+        --fcc-blue: #1b1b32;
+        --light-yellow: #fecc4c;
+        --dark-yellow: #feac32;
+        --light-pink: #ffadad;
+        --dark-red: #850000;
+        --light-green: #9ae19d;
+      }
 
-body {
-  font-family: "Lato", Helvetica, Arial, sans-serif;
-  font-size: 18px;
-  background-color: var(--fcc-blue);
-  color: var(--light-grey);
-}
+      body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        font-size: 18px;
+        background-color: var(--fcc-blue);
+        color: var(--light-grey);
+        margin: 0;
+        padding: 0;
+      }
 
-h1 {
-  text-align: center;
-}
+      h1 {
+        text-align: center;
+        margin: 20px 0;
+      }
 
-.container {
-  width: 90%;
-  max-width: 680px;
-}
+      .container {
+        width: 95%;
+        max-width: 720px;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 20px;
+        border-radius: 12px;
+        margin: 0 auto;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      }
 
-h1,
-.container,
-.output {
-  margin: 20px auto;
-}
+      label,
+      legend {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 4px;
+      }
 
-label,
-legend {
-  font-weight: bold;
-}
+      input,
+      select,
+      button {
+        font-size: 1rem;
+        padding: 8px;
+        margin-bottom: 12px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        width: 100%;
+        box-sizing: border-box;
+      }
 
-.input-container {
-  display: flex;
-  flex-direction: column;
-}
+      button {
+        cursor: pointer;
+        background-color: var(--light-yellow);
+        border: 2px solid var(--dark-yellow);
+        transition: background 0.2s ease-in-out, transform 0.1s;
+      }
 
-button {
-  cursor: pointer;
-  text-decoration: none;
-  background-color: var(--light-yellow);
-  border: 2px solid var(--dark-yellow);
-}
+      button:hover {
+        background-color: var(--dark-yellow);
+      }
 
-button,
-input,
-select {
-  min-height: 24px;
-  color: var(--dark-blue);
-}
+      button:active {
+        transform: scale(0.97);
+      }
 
-fieldset,
-label,
-button,
-input,
-select {
-  margin-bottom: 10px;
-}
+      .controls {
+        margin: 15px 0;
+        text-align: center;
+      }
 
-.output {
-  border: 2px solid var(--light-grey);
-  padding: 10px;
-  text-align: center;
-}
+      .output {
+        border: 2px solid var(--light-grey);
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 10px;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+      }
 
-.hide {
-  display: none;
-}
+      .output.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-.output span {
-  font-weight: bold;
-  font-size: 1.2em;
-}
+      .output span {
+        font-weight: bold;
+        font-size: 1.3em;
+        display: block;
+        margin-bottom: 10px;
+      }
 
-.surplus {
-  color: var(--light-pink);
-}
+      .surplus {
+        color: var(--light-pink);
+      }
 
-.deficit {
-  color: var(--light-green);
-}
+      .deficit {
+        color: var(--light-green);
+      }
+
+      .error {
+        border: 2px solid var(--dark-red) !important;
+        background: rgba(255, 0, 0, 0.1);
+      }
+
+      @media (max-width: 600px) {
+        body {
+          font-size: 16px;
+        }
+        .container {
+          padding: 15px;
+        }
+      }
     </style>
   </head>
   <body>
     <main>
-      <h1>Calorie Counter</h1>
+      <h1>🍎 Calorie Counter</h1>
       <div class="container">
         <form id="calorie-counter">
-          <label for="budget">Budget</label>
+          <label for="budget">Daily Calorie Budget</label>
           <input
             type="number"
             min="0"
-            max="1000"
+            max="10000"
             id="budget"
-            placeholder="Daily calorie budget"
+            placeholder="Enter your calorie budget"
             required
           />
+
           <fieldset id="breakfast">
-            <legend>Breakfast</legend>
+            <legend>🍳 Breakfast</legend>
             <div class="input-container"></div>
           </fieldset>
+
           <fieldset id="lunch">
-            <legend>Lunch</legend>
+            <legend>🥪 Lunch</legend>
             <div class="input-container"></div>
           </fieldset>
+
           <fieldset id="dinner">
-            <legend>Dinner</legend>
+            <legend>🍲 Dinner</legend>
             <div class="input-container"></div>
           </fieldset>
+
           <fieldset id="snacks">
-            <legend>Snacks</legend>
+            <legend>🍪 Snacks</legend>
             <div class="input-container"></div>
           </fieldset>
+
           <fieldset id="exercise">
-            <legend>Exercise</legend>
+            <legend>🔥 Exercise</legend>
             <div class="input-container"></div>
           </fieldset>
+
           <div class="controls">
-            <span>
-              <label for="entry-dropdown">Add food or exercise:</label>
-              <select id="entry-dropdown" name="options">
-                <option value="breakfast" selected>Breakfast</option>
-                <option value="lunch">Lunch</option>
-                <option value="dinner">Dinner</option>
-                <option value="snacks">Snacks</option>
-                <option value="exercise">Exercise</option>
-              </select>
-              <button type="button" id="add-entry">Add Entry</button>
-            </span>
+            <label for="entry-dropdown">Add food or exercise:</label>
+            <select id="entry-dropdown" name="options">
+              <option value="breakfast" selected>Breakfast</option>
+              <option value="lunch">Lunch</option>
+              <option value="dinner">Dinner</option>
+              <option value="snacks">Snacks</option>
+              <option value="exercise">Exercise</option>
+            </select>
+            <button type="button" id="add-entry">➕ Add Entry</button>
           </div>
-          <div>
-            <button type="submit">
-              Calculate Remaining Calories
-            </button>
-            <button type="button" id="clear">Clear</button>
+
+          <div class="controls">
+            <button type="submit">✅ Calculate</button>
+            <button type="button" id="clear">🗑️ Clear</button>
           </div>
         </form>
-        <div id="output" class="output hide"></div>
+
+        <div id="output" class="output"></div>
       </div>
     </main>
+
     <script>
-        const calorieCounter = document.getElementById('calorie-counter');
-const budgetNumberInput = document.getElementById('budget');
-const entryDropdown = document.getElementById('entry-dropdown');
-const addEntryButton = document.getElementById('add-entry');
-const clearButton = document.getElementById('clear');
-const output = document.getElementById('output');
-let isError = false;
+      const calorieCounter = document.getElementById("calorie-counter");
+      const budgetNumberInput = document.getElementById("budget");
+      const entryDropdown = document.getElementById("entry-dropdown");
+      const addEntryButton = document.getElementById("add-entry");
+      const clearButton = document.getElementById("clear");
+      const output = document.getElementById("output");
+      let isError = false;
 
-function cleanInputString(str) {
-  const regex = /[+-\s]/g;
-  return str.replace(regex, '');
-}
+      function cleanInputString(str) {
+        const regex = /[+-\s]/g;
+        return str.replace(regex, "");
+      }
 
-function isInvalidInput(str) {
-  const regex = /\d+e\d+/i;
-  return str.match(regex);
-}
+      function isInvalidInput(str) {
+        const regex = /\d+e\d+/i;
+        return str.match(regex);
+      }
 
-function addEntry() {
-  const targetInputContainer = document.querySelector(`#${entryDropdown.value} .input-container`);
-  const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
-  const HTMLString = `
-  <label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Name</label>
-  <input type="text" id="${entryDropdown.value}-${entryNumber}-name" placeholder="Name" />
-  <label for="${entryDropdown.value}-${entryNumber}-calories">Entry ${entryNumber} Calories</label>
-  <input
-    type="number"
-    min="0"
-    id="${entryDropdown.value}-${entryNumber}-calories"
-    placeholder="Calories"
-  />`;
-  targetInputContainer.insertAdjacentHTML('beforeend', HTMLString);
-}
+      function addEntry() {
+        const targetInputContainer = document.querySelector(
+          `#${entryDropdown.value} .input-container`
+        );
+        const entryNumber =
+          targetInputContainer.querySelectorAll("input[type='text']").length +
+          1;
+        const HTMLString = `
+        <label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Name</label>
+        <input type="text" id="${entryDropdown.value}-${entryNumber}-name" placeholder="Name" />
+        <label for="${entryDropdown.value}-${entryNumber}-calories">Entry ${entryNumber} Calories</label>
+        <input
+          type="number"
+          min="0"
+          id="${entryDropdown.value}-${entryNumber}-calories"
+          placeholder="Calories"
+        />`;
+        targetInputContainer.insertAdjacentHTML("beforeend", HTMLString);
+      }
 
-function calculateCalories(e) {
-  e.preventDefault();
-  isError = false;
+      function calculateCalories(e) {
+        e.preventDefault();
+        isError = false;
+        clearErrorHighlights();
 
-  const breakfastNumberInputs = document.querySelectorAll("#breakfast input[type='number']");
-  const lunchNumberInputs = document.querySelectorAll("#lunch input[type='number']");
-  const dinnerNumberInputs = document.querySelectorAll("#dinner input[type='number']");
-  const snacksNumberInputs = document.querySelectorAll("#snacks input[type='number']");
-  const exerciseNumberInputs = document.querySelectorAll("#exercise input[type='number']");
+        const breakfastCalories = getCaloriesFromInputs(
+          document.querySelectorAll("#breakfast input[type='number']")
+        );
+        const lunchCalories = getCaloriesFromInputs(
+          document.querySelectorAll("#lunch input[type='number']")
+        );
+        const dinnerCalories = getCaloriesFromInputs(
+          document.querySelectorAll("#dinner input[type='number']")
+        );
+        const snacksCalories = getCaloriesFromInputs(
+          document.querySelectorAll("#snacks input[type='number']")
+        );
+        const exerciseCalories = getCaloriesFromInputs(
+          document.querySelectorAll("#exercise input[type='number']")
+        );
+        const budgetCalories = getCaloriesFromInputs([budgetNumberInput]);
 
-  const breakfastCalories = getCaloriesFromInputs(breakfastNumberInputs);
-  const lunchCalories = getCaloriesFromInputs(lunchNumberInputs);
-  const dinnerCalories = getCaloriesFromInputs(dinnerNumberInputs);
-  const snacksCalories = getCaloriesFromInputs(snacksNumberInputs);
-  const exerciseCalories = getCaloriesFromInputs(exerciseNumberInputs);
-  const budgetCalories = getCaloriesFromInputs([budgetNumberInput]);
+        if (isError) return;
 
-  if (isError) {
-    return;
-  }
+        const consumedCalories =
+          breakfastCalories + lunchCalories + dinnerCalories + snacksCalories;
+        const remainingCalories =
+          budgetCalories - consumedCalories + exerciseCalories;
+        const status = remainingCalories < 0 ? "Surplus" : "Deficit";
 
-  const consumedCalories = breakfastCalories + lunchCalories + dinnerCalories + snacksCalories;
-  const remainingCalories = budgetCalories - consumedCalories + exerciseCalories;
-  const surplusOrDeficit = remainingCalories < 0 ? 'Surplus' : 'Deficit';
-  output.innerHTML = `
-  <span class="${surplusOrDeficit.toLowerCase()}">${Math.abs(remainingCalories)} Calorie ${surplusOrDeficit}</span>
-  <hr>
-  <p>${budgetCalories} Calories Budgeted</p>
-  <p>${consumedCalories} Calories Consumed</p>
-  <p>${exerciseCalories} Calories Burned</p>
-  `;
+        output.innerHTML = `
+        <span class="${status.toLowerCase()}">${Math.abs(
+          remainingCalories
+        )} Calorie ${status}</span>
+        <hr>
+        <p>🎯 Budget: <strong>${budgetCalories}</strong> kcal</p>
+        <p>🍔 Consumed: <strong>${consumedCalories}</strong> kcal</p>
+        <p>🔥 Burned: <strong>${exerciseCalories}</strong> kcal</p>
+        `;
 
-  output.classList.remove('hide');
-}
+        output.classList.add("show");
+      }
 
-function getCaloriesFromInputs(list) {
-  let calories = 0;
+      function getCaloriesFromInputs(list) {
+        let calories = 0;
+        for (const item of list) {
+          const currVal = cleanInputString(item.value);
+          const invalidInputMatch = isInvalidInput(currVal);
 
-  for (const item of list) {
-    const currVal = cleanInputString(item.value);
-    const invalidInputMatch = isInvalidInput(currVal);
+          if (invalidInputMatch) {
+            item.classList.add("error");
+            isError = true;
+          }
+          calories += Number(currVal);
+        }
+        return calories;
+      }
 
-    if (invalidInputMatch) {
-      alert(`Invalid Input: ${invalidInputMatch[0]}`);
-      isError = true;
-      return null;
-    }
-    calories += Number(currVal);
-  }
-  return calories;
-}
+      function clearErrorHighlights() {
+        document.querySelectorAll("input").forEach((el) =>
+          el.classList.remove("error")
+        );
+      }
 
-function clearForm() {
-  const inputContainers = Array.from(document.querySelectorAll('.input-container'));
+      function clearForm() {
+        document
+          .querySelectorAll(".input-container")
+          .forEach((c) => (c.innerHTML = ""));
+        budgetNumberInput.value = "";
+        output.innerHTML = "";
+        output.classList.remove("show");
+      }
 
-  for (const container of inputContainers) {
-    container.innerHTML = '';
-  }
-
-  budgetNumberInput.value = '';
-  output.innerText = '';
-  output.classList.add('hide');
-}
-
-addEntryButton.addEventListener("click", addEntry);
-calorieCounter.addEventListener("submit", calculateCalories);
-clearButton.addEventListener("click", clearForm);
+      addEntryButton.addEventListener("click", addEntry);
+      calorieCounter.addEventListener("submit", calculateCalories);
+      clearButton.addEventListener("click", clearForm);
     </script>
   </body>
 </html>

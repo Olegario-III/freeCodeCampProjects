@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Statistics Calculator</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: rgb(27, 27, 50);
+      text-align: center;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    button {
+      cursor: pointer;
+      background-color: rgb(59, 59, 79);
+      border: 3px solid white;
+      color: white;
+      padding: 5px 15px;
+      margin-top: 10px;
+    }
+    input {
+      background-color: rgb(10, 10, 35);
+      color: white;
+      border: 1px solid rgb(59, 59, 79);
+      padding: 5px;
+      width: 250px;
+      margin: 5px 0;
+    }
+    .bold {
+      font-weight: bold;
+    }
+    .results {
+      margin-top: 20px;
+      text-align: left;
+      display: inline-block;
+      background: rgba(255,255,255,0.05);
+      padding: 15px;
+      border-radius: 8px;
+    }
+    .results p {
+      margin: 8px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Statistics Calculator</h1>
+  <p>Enter a list of comma-separated numbers.</p>
+  <form onsubmit="calculate(); return false;">
+    <label for="numbers">Numbers:</label><br>
+    <input type="text" name="numbers" id="numbers" placeholder="e.g. 1, 2, 3, 4, 5" />
+    <br>
+    <button type="submit">Calculate</button>
+  </form>
+
+  <div class="results">
+    <p>The <dfn>mean</dfn> is the average of all numbers.</p>
+    <p class="bold">Mean: <span id="mean"></span></p>
+    
+    <p>The <dfn>median</dfn> is the middle value in the sorted list.</p>
+    <p class="bold">Median: <span id="median"></span></p>
+    
+    <p>The <dfn>mode</dfn> is the most frequently occurring number(s).</p>
+    <p class="bold">Mode: <span id="mode"></span></p>
+    
+    <p>The <dfn>range</dfn> is the difference between largest and smallest numbers.</p>
+    <p class="bold">Range: <span id="range"></span></p>
+    
+    <p>The <dfn>variance</dfn> measures spread of values from the mean.</p>
+    <p class="bold">Variance: <span id="variance"></span></p>
+    
+    <p>The <dfn>standard deviation</dfn> is the square root of variance.</p>
+    <p class="bold">Standard Deviation: <span id="standardDeviation"></span></p>
+  </div>
+
+  <script>
+    const getMean = (array) => array.reduce((acc, el) => acc + el, 0) / array.length;
+
+    const getMedian = (array) => {
+      const sorted = array.slice().sort((a, b) => a - b);
+      return sorted.length % 2 === 0
+        ? getMean([sorted[sorted.length / 2], sorted[sorted.length / 2 - 1]])
+        : sorted[Math.floor(sorted.length / 2)];
+    };
+
+    const getMode = (array) => {
+      const counts = {};
+      array.forEach((el) => counts[el] = (counts[el] || 0) + 1);
+      if (new Set(Object.values(counts)).size === 1) return "No mode";
+      const highest = Math.max(...Object.values(counts));
+      const mode = Object.keys(counts).filter(el => counts[el] === highest);
+      return mode.join(", ");
+    };
+
+    const getRange = (array) => Math.max(...array) - Math.min(...array);
+
+    const getVariance = (array) => {
+      const mean = getMean(array);
+      return array.reduce((acc, el) => acc + (el - mean) ** 2, 0) / array.length;
+    };
+
+    const getStandardDeviation = (array) => Math.sqrt(getVariance(array));
+
+    const format = (num) => Number.isInteger(num) ? num : num.toFixed(2);
+
+    const calculate = () => {
+      const value = document.querySelector("#numbers").value;
+      const numbers = value.split(/,\s*/g).map(Number).filter(n => !isNaN(n));
+
+      if (numbers.length === 0) {
+        alert("Please enter valid numbers separated by commas.");
+        return;
+      }
+
+      document.querySelector("#mean").textContent = format(getMean(numbers));
+      document.querySelector("#median").textContent = format(getMedian(numbers));
+      document.querySelector("#mode").textContent = getMode(numbers);
+      document.querySelector("#range").textContent = format(getRange(numbers));
+      document.querySelector("#variance").textContent = format(getVariance(numbers));
+      document.querySelector("#standardDeviation").textContent = format(getStandardDeviation(numbers));
+    };
+  </script>
+</body>
+</html>

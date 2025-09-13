@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>number validator</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="stylesValidator.css">
+  </head>
+  <body>
+    <h1>Telephone Number Validator</h1>
+    <form>
+    <input type="text" id="user-input"><br>
+    <div Id="results-div"></div><br>
+    <button id="check-btn">check</button><button id="clear-btn">clear</button>
+    </form>
+    <script>
+        const userInput = document.getElementById('user-input');
+const checkBtn = document.getElementById('check-btn');
+const clearBtn = document.getElementById('clear-btn');
+const resultsDiv = document.getElementById('results-div');
+
+const checkInput= ()=>{
+  const regex= /^1?\s?(\(\d{3}\)|\d{3})[\s.-]?\d{3}[\s.-]?\d{4}$/;
+  if(userInput.value === ""){
+    alert("Please provide a phone number");
+  } else if(regex.test(userInput.value)){
+    resultsDiv.innerText +=`Valid US number: ${userInput.value}\n`;
+  }else {
+    resultsDiv.innerText +=`Invalid US number: ${userInput.value}\n`;
+  }
+};
+const clearResult= ()=>resultsDiv.innerText="";
+checkBtn.addEventListener("click", checkInput);
+clearBtn.addEventListener("click", clearResult);
+    </script>
+  </body>
+</html>

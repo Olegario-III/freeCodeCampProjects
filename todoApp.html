@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Task Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      margin: 20px 0;
+      color: #333;
+    }
+    .btn {
+      padding: 6px 12px;
+      margin: 4px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      opacity: 0.9;
+    }
+    #open-task-form-btn {
+      background: #007bff;
+      color: white;
+      font-size: 16px;
+    }
+    #task-form {
+      background: white;
+      padding: 16px;
+      margin: 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      width: 320px;
+    }
+    .hidden {
+      display: none;
+    }
+    #task-form input,
+    #task-form textarea {
+      width: 100%;
+      margin: 8px 0;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    #tasks-container {
+      width: 340px;
+      margin: 16px;
+    }
+    .task {
+      background: white;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    .task p {
+      margin: 6px 0;
+    }
+    .task button {
+      background: #007bff;
+      color: white;
+    }
+    .task button:last-child {
+      background: #dc3545;
+    }
+    dialog {
+      border: none;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    dialog button {
+      margin: 0 6px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Task Manager</h1>
+  <button id="open-task-form-btn" class="btn">Add Task</button>
+
+  <form id="task-form" class="hidden">
+    <label>Title</label>
+    <input type="text" id="title-input" placeholder="Task title"/>
+    <label>Date</label>
+    <input type="date" id="date-input"/>
+    <label>Description</label>
+    <textarea id="description-input" rows="3" placeholder="Task description"></textarea>
+    <div style="margin-top:10px;">
+      <button type="submit" id="add-or-update-task-btn" class="btn" style="background:#28a745;color:white;">Add Task</button>
+      <button type="button" id="close-task-form-btn" class="btn" style="background:#6c757d;color:white;">Close</button>
+    </div>
+  </form>
+
+  <div id="tasks-container"></div>
+
+  <dialog id="confirm-close-dialog">
+    <p>Discard changes?</p>
+    <button id="cancel-btn" class="btn" style="background:#6c757d;color:white;">Cancel</button>
+    <button id="discard-btn" class="btn" style="background:#dc3545;color:white;">Discard</button>
+  </dialog>
+
+  <script>
+    const taskForm = document.getElementById("task-form");
+    const confirmCloseDialog = document.getElementById("confirm-close-dialog");
+    const openTaskFormBtn = document.getElementById("open-task-form-btn");
+    const closeTaskFormBtn = document.getElementById("close-task-form-btn");
+    const addOrUpdateTaskBtn = document.getElementById("add-or-update-task-btn");
+    const cancelBtn = document.getElementById("cancel-btn");
+    const discardBtn = document.getElementById("discard-btn");
+    const tasksContainer = document.getElementById("tasks-container");
+    const titleInput = document.getElementById("title-input");
+    const dateInput = document.getElementById("date-input");
+    const descriptionInput = document.getElementById("description-input");
+
+    const taskData = JSON.parse(localStorage.getItem("data")) || [];
+    let currentTask = {};
+
+    const removeSpecialChars = (val) => {
+      return val.trim().replace(/[^A-Za-z0-9\-\s]/g, '')
+    }
+
+    const addOrUpdateTask = () => {
+      if(!titleInput.value.trim()){
+        alert("Please provide a title");
+        return;
+      }
+      const dataArrIndex = taskData.findIndex((item) => item.id === currentTask.id);
+      const taskObj = {
+        id: `${removeSpecialChars(titleInput.value).toLowerCase().split(" ").join("-")}-${Date.now()}`,
+        title: removeSpecialChars(titleInput.value),
+        date: dateInput.value,
+        description: removeSpecialChars(descriptionInput.value),
+      };
+
+      if (dataArrIndex === -1) {
+        taskData.unshift(taskObj);
+      } else {
+        taskData[dataArrIndex] = taskObj;
+      }
+
+      localStorage.setItem("data", JSON.stringify(taskData));
+      updateTaskContainer()
+      reset()
+    };
+
+    const updateTaskContainer = () => {
+      tasksContainer.innerHTML = "";
+      taskData.forEach(
+        ({ id, title, date, description }) => {
+          tasksContainer.innerHTML += `
+            <div class="task" id="${id}">
+              <p><strong>Title:</strong> ${title}</p>
+              <p><strong>Date:</strong> ${date}</p>
+              <p><strong>Description:</strong> ${description}</p>
+              <button onclick="editTask(this)" type="button" class="btn">Edit</button>
+              <button onclick="deleteTask(this)" type="button" class="btn">Delete</button> 
+            </div>
+          `
+        }
+      );
+    };
+
+    const deleteTask = (buttonEl) => {
+      const dataArrIndex = taskData.findIndex(
+        (item) => item.id === buttonEl.parentElement.id
+      );
+      buttonEl.parentElement.remove();
+      taskData.splice(dataArrIndex, 1);
+      localStorage.setItem("data", JSON.stringify(taskData));
+    }
+
+    const editTask = (buttonEl) => {
+      const dataArrIndex = taskData.findIndex(
+        (item) => item.id === buttonEl.parentElement.id
+      );
+      currentTask = taskData[dataArrIndex];
+      titleInput.value = currentTask.title;
+      dateInput.value = currentTask.date;
+      descriptionInput.value = currentTask.description;
+      addOrUpdateTaskBtn.innerText = "Update Task";
+      taskForm.classList.toggle("hidden");  
+    }
+
+    const reset = () => {
+      addOrUpdateTaskBtn.innerText = "Add Task";
+      titleInput.value = "";
+      dateInput.value = "";
+      descriptionInput.value = "";
+      taskForm.classList.add("hidden");
+      currentTask = {};
+    }
+
+    if (taskData.length) {
+      updateTaskContainer();
+    }
+
+    openTaskFormBtn.addEventListener("click", () =>
+      taskForm.classList.toggle("hidden")
+    );
+
+    closeTaskFormBtn.addEventListener("click", () => {
+      const formInputsContainValues = titleInput.value || dateInput.value || descriptionInput.value;
+      const formInputValuesUpdated = titleInput.value !== currentTask.title || dateInput.value !== currentTask.date || descriptionInput.value !== currentTask.description;
+
+      if (formInputsContainValues && formInputValuesUpdated) {
+        confirmCloseDialog.showModal();
+      } else {
+        reset();
+      }
+    });
+
+    cancelBtn.addEventListener("click", () => confirmCloseDialog.close());
+    discardBtn.addEventListener("click", () => {
+      confirmCloseDialog.close();
+      reset()
+    });
+
+    taskForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      addOrUpdateTask();
+    });
+
+    // Expose edit and delete to global scope
+    window.editTask = editTask;
+    window.deleteTask = deleteTask;
+  </script>
+</body>
+</html>

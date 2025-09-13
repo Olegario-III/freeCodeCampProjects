@@ -1,0 +1,80 @@
+/* Apply a modern font */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+  margin: 0;
+  text-align: center;
+}
+
+/* Style the heading */
+h1 {
+  color: #333;
+}
+
+/* Style the input field */
+input {
+  width: 250px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+/* Input focus effect */
+input:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Style the result box */
+#results-div {
+  min-height: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  width: 250px;
+  margin: 10px auto;
+}
+
+/* Style the buttons */
+button {
+  padding: 10px 15px;
+  font-size: 16px;
+  color: white;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Clear button different color */
+#clear-btn {
+  background-color: #dc3545;
+}
+
+#clear-btn:hover {
+  background-color: #a71d2a;
+}
+
+/* Responsive design */
+@media (max-width: 400px) {
+  input, #results-div {
+    width: 90%;
+  }
+}

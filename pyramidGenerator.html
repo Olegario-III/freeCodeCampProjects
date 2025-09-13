@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pyramid Pattern Toggle</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #111;
+      color: #0f0;
+      font-family: monospace;
+      margin: 0;
+    }
+    pre {
+      font-size: 18px;
+      line-height: 1.2;
+      white-space: pre;
+      margin: 20px 0;
+      text-align: center;
+    }
+    input, button {
+      padding: 8px 12px;
+      font-size: 16px;
+      font-family: monospace;
+      border: none;
+      border-radius: 6px;
+      margin: 5px;
+    }
+    input {
+      width: 100px;
+      text-align: center;
+    }
+    button {
+      cursor: pointer;
+      background: #0f0;
+      color: #111;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #0c0;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <label>Symbol: <input type="text" id="symbolInput" value="!"></label>
+    <label>Rows: <input type="number" id="rowInput" value="10" min="1" max="30"></label>
+  </div>
+  <pre id="output"></pre>
+  <button id="toggleBtn">Toggle Inverted</button>
+
+  <script>
+    let inverted = false;
+
+    function padRow(rowNumber, rowCount, character) {
+      return " ".repeat(rowCount - rowNumber) + character.repeat(2 * rowNumber - 1) + " ".repeat(rowCount - rowNumber);
+    }
+
+    function generatePyramid(character, count) {
+      const rows = [];
+      for (let i = 1; i <= count; i++) {
+        if (inverted) {
+          rows.unshift(padRow(i, count, character));
+        } else {
+          rows.push(padRow(i, count, character));
+        }
+      }
+      return rows.join("\n");
+    }
+
+    function render() {
+      const character = document.getElementById("symbolInput").value || "!";
+      const count = parseInt(document.getElementById("rowInput").value) || 10;
+      document.getElementById("output").textContent = generatePyramid(character, count);
+    }
+
+    document.getElementById("toggleBtn").addEventListener("click", () => {
+      inverted = !inverted;
+      render();
+    });
+
+    document.getElementById("symbolInput").addEventListener("input", render);
+    document.getElementById("rowInput").addEventListener("input", render);
+
+    // Initial render
+    render();
+  </script>
+</body>
+</html>

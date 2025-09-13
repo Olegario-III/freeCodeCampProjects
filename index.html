@@ -25,6 +25,20 @@
             overflow: hidden;
         }
 
+        .project-image {
+  width: 100%;
+  height: 120px;       /* fixed height */
+  overflow: hidden;    /* crop image if too big */
+  border-radius: 8px 8px 0 0;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* keeps proportions, fills container */
+  display: block;
+}
+
         h1 {
             margin: 0;
             font-size: 2.5em;
@@ -366,12 +380,15 @@
 
 
     <section class="projects" id="projects">
-        <h2>My Projects</h2>
+        <h2>Responsive Web Design Certification Projects</h2>
         <div class="project-grid">
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
                 <a href="surveyForm.html" target="_blank">
                     <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/surveyFormImg.png" alt="Survey Form Preview">
+                        </div>
                         <h3>Survey Form</h3>
                         <p>An Html survey form project</p>
                     </div>
@@ -381,6 +398,9 @@
                 <div class="animated-border"></div>
                 <a href="tribute.html" target="_blank">
                     <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/tributeImg.png" alt="tribute Preview">
+                        </div>
                         <h3>Tribute Page</h3>
                         <p>A tribute page</p>
                     </div>
@@ -390,6 +410,9 @@
                 <div class="animated-border"></div>
                 <a href="tech.html" target="_blank">
                     <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/technicalImg.png" alt="tech Doc Page Preview">
+                        </div>
                         <h3>Technical Documentation Page</h3>
                         <p>A technical documentation about programming.</p>
                     </div>
@@ -399,6 +422,9 @@
                 <div class="animated-border"></div>
                 <a href="landing.html" target="_blank">
                     <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/landingImg.png" alt="landing Page Preview">
+                        </div>
                         <h3>Product Landing Page</h3>
                         <p>a product landing page where you can buy cheap bricks</p>
                     </div>
@@ -408,6 +434,9 @@
                 <div class="animated-border"></div>
                 <a href="portfolio.html" target="_blank">
                     <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/portfolioImg.png" alt="portfolio Preview">
+                        </div>
                         <h3>Personal Portfolio Webpage</h3>
                         <p>A Simple Looking Portfolio</p>
                     </div>
@@ -423,12 +452,15 @@
 
 
     <section class="projects">
-        <h2>My Projects</h2>
+        <h2>Responsive Web Design Practice Projects</h2>
         <div class="project-grid">
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
                 <a href="catphotoapp.html" target="_blank">
                     <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/catPhotoAppImg.png" alt="cat photo app Preview">
+                        </div>
                         <h3>Cat Photo App</h3>
                         <p>First project in Responsive Web FCC</p>
                     </div>
@@ -438,6 +470,9 @@
                 <div class="animated-border"></div>
                 <a href="cafeMenu.html" target="_blank">
                     <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/cafeMenuImg.png" alt="cafe menu Preview">
+                        </div>
                         <h3>Cafe Menu</h3>
                         <p>A Website displaying Menu of a Cafe</p>
                     </div>
@@ -447,6 +482,9 @@
                 <div class="animated-border"></div>
                 <a href="colorMarker.html" target="_blank">
                     <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/coloredMarkerImg.png" alt="colored marker Preview">
+                        </div>
                         <h3>Colored Marker</h3>
                         <p>A project fucos on using color in css</p>
                     </div>
@@ -456,6 +494,9 @@
                 <div class="animated-border"></div>
                 <a href="registrationForm.html" target="_blank">
                     <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/registrationFormImg.png" alt="registration form Preview">
+                        </div>
                         <h3>Registration Form</h3>
                         <p>A Registration form project</p>
                     </div>
@@ -465,6 +506,9 @@
                 <div class="animated-border"></div>
                 <a href="rothkoPainting.html" target="_blank">
                     <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/rothkoPaintingImg.png" alt="rothko painting Preview">
+                        </div>
                         <h3>Rothko Painting</h3>
                         <p>A rothko painting using html and css</p>                        
                     </div>
@@ -474,6 +518,9 @@
                 <div class="animated-border"></div>
                 <a href="photoGallery.html" target="_blank">
                     <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/photoGalleryImg.png" alt="photo gallery Preview">
+                        </div>
                         <h3>Photo Gallery</h3>
                         <p>A gallery created using flexbox</p>
                     </div>
@@ -483,6 +530,9 @@
                 <div class="animated-border"></div>
                 <a href="nutritionLabel.html" target="_blank">
                     <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/nutritionLabelImg.png" alt="nutrition label Preview">
+                        </div>
                         <h3>Nutrition Label</h3>
                         <p>A nutrition label created using html and css</p>
                     </div>
@@ -492,6 +542,9 @@
                 <div class="animated-border"></div>
                 <a href="buildingQuiz.html" target="_blank">
                     <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/makingQuizImg.png" alt="building quiz Preview">
+                        </div>
                         <h3>Building Quiz</h3>
                         <p>A quiz build in web</p>
                     </div>
@@ -501,6 +554,9 @@
                 <div class="animated-border"></div>
                 <a href="balanceSheet.html" target="_blank">
                     <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/balanceSheetImg.png" alt="balance sheet Preview">
+                        </div>
                         <h3>Balance Sheet</h3>
                         <p>A balance sheet project in Responsive Web.</p>
                     </div>
@@ -510,6 +566,9 @@
                 <div class="animated-border"></div>
                 <a href="catPainting.html" target="_blank">
                     <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/catPaintingImg.png" alt="cat painting Preview">
+                        </div>
                         <h3>Cat Painting</h3>
                         <p>A project in which you draw or paint using css</p>
                     </div>
@@ -519,6 +578,9 @@
                 <div class="animated-border"></div>
                 <a href="piano.html" target="_blank">
                     <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/pianoImg.png" alt="building piano Preview">
+                        </div>
                         <h3>Building Piano</h3>
                         <p>An image of a piano created in html and css</p>
                     </div>
@@ -528,6 +590,9 @@
                 <div class="animated-border"></div>
                 <a href="skyline.html" target="_blank">
                     <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/skylineImg.png" alt="city skyline Preview">
+                        </div>
                         <h3>City Skyline</h3>
                         <p>A city skyline created using html and css</p>                        
                     </div>
@@ -537,6 +602,9 @@
                 <div class="animated-border"></div>
                 <a href="magazine.html" target="_blank">
                     <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/magazineImg.png" alt="magazine Preview">
+                        </div>
                         <h3>Building Magazine</h3>
                         <p>A magazine</p>
                     </div>
@@ -546,6 +614,9 @@
                 <div class="animated-border"></div>
                 <a href="ferrisWheel.html" target="_blank">
                     <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/ferrisWheelImg.png" alt="ferris wheel Preview">
+                        </div>
                         <h3>Ferris Wheel</h3>
                         <p>A ferris wheel that move through css animation</p>
                     </div>
@@ -555,6 +626,9 @@
                 <div class="animated-border"></div>
                 <a href="penguin.html" target="_blank">
                     <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/penguinImg.png" alt="penguin Preview">
+                        </div>
                         <h3>Penguin</h3>
                         <p>a penguin created using animation and transform.</p>
                     </div>
@@ -571,51 +645,61 @@
 
 
 
-    /* <section class="projects">
-        <h2>My Projects</h2>
+    <section class="projects">
+        <h2>JavaScript Algorithms and Data Structures Certification Projects</h2>
         <div class="project-grid">
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="colorChanger.html" target="_blank">
+                <a href="palindrome.html" target="_blank">
                     <div class="project-card">
-                        <h3>Color Changer</h3>
-                        <p>A page that you can change color randomly.</p>
+                        <div class="project-image">
+                            <img src="image2/palindromeCheckerImg.png" alt="palindrome checker Preview">
+                        </div>
+                        <h3>Palindrome Checker</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="gradeBook.html" target="_blank">
+                <a href="numeralConverter.html" target="_blank">
                     <div class="project-card">
-                        <h3>Gradebook</h3>
-                        <p>A page that check if student has passed.</p>
+                        <div class="project-image">
+                            <img src="image2/romanNumeralConverterImg.png" alt="roman numeral converter Preview">
+                        </div>
+                        <h3>Roman Numeral Converter</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="musicPlayer.html" target="_blank">
+                <a href="numberValidator.html" target="_blank">
                     <div class="project-card">
-                        <h3>Music Player</h3>
-                        <p>A music player site.</p>
+                        <div class="project-image">
+                            <img src="image2/tephoneValidatorImg.png" alt="telephone number validator Preview">
+                        </div>
+                        <h3>Telephone Number Validator</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="pyramidMaker.html" target="_blank">
+                <a href="cashRegister.html" target="_blank">
                     <div class="project-card">
-                        <h3>Pyramid Maker</h3>
-                        <p>A page that create pyramid.</p>
+                        <div class="project-image">
+                            <img src="image2/cashRegisterImg.png" alt="cash register Preview">
+                        </div>
+                        <h3>Cash Register</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="rockPaperScissor.html" target="_blank">
+                <a href="searchApp.html" target="_blank">
                     <div class="project-card">
-                        <h3>Rock Paper Scissor Game</h3>
-                        <p>Rock paper scissor game that you can play.</p>
+                        <div class="project-image">
+                            <img src="image2/rpgCreatureAppImg.png" alt="rpg creature search app Preview">
+                        </div>
+                        <h3>RPG Creature Search app</h3>
                     </div>
                 </a>
             </div>
@@ -629,185 +713,225 @@
 
 
     <section class="projects">
-        <h2>My Projects</h2>
+        <h2>JavaScript Algorithms and Data Structures Practice Projects</h2>
         <div class="project-grid">
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="rothkoPainting.html" target="_blank">
+                <a href="pyramidGenerator.html" target="_blank">
                     <div class="project-card">
-                        <h3>Cat Photo App</h3>
-                        <p>A rothko painting using html and css</p>
+                        <div class="project-image">
+                            <img src="image2/pyramidMakerImg.png" alt="pyramid generator Preview">
+                        </div>
+                        <h3>Pyramid Generator</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="photoGallery.html" target="_blank">
+                <a href="gradeBook.html" target="_blank">
                     <div class="project-card">
-                        <h3>Cafe Menu</h3>
-                        <p>A gallery created using flexbox</p>
+                        <div class="project-image">
+                            <img src="image2/gradeBookCheckerImg.png" alt="gradebook app Preview">
+                        </div>
+                        <h3>Gradebook App</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="nutritionLabel.html" target="_blank">
+                <a href="rolePlayingGame.html" target="_blank">
                     <div class="project-card">
-                        <h3>Colored Marker</h3>
-                        <p>A nutrition label created using html and css</p>
+                        <div class="project-image">
+                            <img src="image2/rolePlayingGameImg.png" alt="role playing game Preview">
+                        </div>
+                        <h3>Role Playing Game</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="buildingQuiz.html" target="_blank">
+                <a href="colorChanger.html" target="_blank">
                     <div class="project-card">
-                        <h3>Registration Form</h3>
-                        <p>A quiz build in web</p>
+                        <div class="project-image">
+                            <img src="image2/colorChangerImg.png" alt="color changer Preview">
+                        </div>
+                        <h3>Color Changer</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="tribute.html" target="_blank">
+                <a href="calorieCounter.html" target="_blank">
                     <div class="project-card">
-                        <h3>Rothko Painting</h3>
-                        <p>A tribute page</p>
+                        <div class="project-image">
+                            <img src="image2/calorieCounterImg.png" alt="calrie counter Preview">
+                        </div>
+                        <h3>Calorie Counter</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="balanceSheet.html" target="_blank">
+                <a href="rockPaperScissor.html" target="_blank">
                     <div class="project-card">
-                        <h3>Photo Gallery</h3>
-                        <p>A balance sheet project in Responsive Web.</p>
+                        <div class="project-image">
+                            <img src="image2/rockPaperScissorImg.png" alt="rock, paper, scissor Preview">
+                        </div>
+                        <h3>Rock, Paper, Scissor</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="catPainting.html" target="_blank">
+                <a href="musicPlayer.html" target="_blank">
                     <div class="project-card">
-                        <h3>Nutrition Label</h3>
-                        <p>A project in which you draw or paint using css</p>
+                        <div class="project-image">
+                            <img src="image2/musicPlayerImg.png" alt="music player Preview">
+                        </div>
+                        <h3>Music Player</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="piano.html" target="_blank">
+                <a href="dateFormatter.html" target="_blank">
                     <div class="project-card">
-                        <h3>Building Quiz</h3>
-                        <p>An image of a piano created in html and css</p>
+                        <div class="project-image">
+                            <img src="image2/dateFormatterImg.png" alt="date formatter Preview">
+                        </div>
+                        <h3>Date Formatter</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="tech.html" target="_blank">
+                <a href="teamCards.html" target="_blank">
                     <div class="project-card">
-                        <h3>Balance Sheet</h3>
-                        <p>A technical documentation about programming.</p>
+                        <div class="project-image">
+                            <img src="image2/footballTeamCardsImg.png" alt="football team cards Preview">
+                        </div>
+                        <h3>Football Team Cards</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="skyline.html" target="_blank">
+                <a href="todoApp.html" target="_blank">
                     <div class="project-card">
-                        <h3>Cat Painting</h3>
-                        <p>A city skyline created using html and css</p>
+                        <div class="project-image">
+                            <img src="image2/todoAppImg.png" alt="todo app Preview">
+                        </div>
+                        <h3>Todo App</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="magazine.html" target="_blank">
+                <a href="binaryConverter.html" target="_blank">
                     <div class="project-card">
-                        <h3>Building Piano</h3>
-                        <p>A magazine</p>
+                        <div class="project-image">
+                            <img src="image2/binaryConverterImg.png" alt="binary converter Preview">
+                        </div>
+                        <h3>Binary Converter</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="landing.html" target="_blank">
+                <a href="spamFilter.html" target="_blank">
                     <div class="project-card">
-                        <h3>City Skyline</h3>
-                        <p>a product landing page where you can buy cheap bricks</p>
+                        <div class="project-image">
+                            <img src="image2/spamFilterImg.png" alt="spam filter Preview">
+                        </div>
+                        <h3>Spam Filter</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="ferrisWheel.html" target="_blank">
+                <a href="numberSorter.html" target="_blank">
                     <div class="project-card">
-                        <h3>Building Magazine</h3>
-                        <p>A ferris wheel that move through css animation</p>
+                        <div class="project-image">
+                            <img src="image2/numberSorterImg.png" alt="number sorter Preview">
+                        </div>
+                        <h3>Number Sorter</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="penguin.html" target="_blank">
+                <a href="statisticCalculator.html" target="_blank">
                     <div class="project-card">
-                        <h3>Ferris Wheel</h3>
-                        <p>a penguin created using animation and transform.</p>
+                        <div class="project-image">
+                            <img src="image2/statisticCalculatorImg.png" alt="statistic calculator Preview">
+                        </div>
+                        <h3>Statistic Calculator</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="news.html" target="_blank">
+                <a href="spreadSheet.html" target="_blank">
                     <div class="project-card">
-                        <h3>Penguin</h3>
-                        <p>A page didicated for news.</p>
+                        <div class="project-image">
+                            <img src="image2/spreadsheetImg.png" alt="spreadSheet Preview">
+                        </div>
+                        <h3>Spreadsheet</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="news.html" target="_blank">
+                <a href="shoppingCart.html" target="_blank">
                     <div class="project-card">
-                        <h3>Penguin</h3>
-                        <p>A page didicated for news.</p>
+                        <div class="project-image">
+                            <img src="image2/addCartImg.png" alt="shopping cart Preview">
+                        </div>
+                        <h3>Shopping Cart</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="news.html" target="_blank">
+                <a href="platformerGame.html" target="_blank">
                     <div class="project-card">
-                        <h3>Penguin</h3>
-                        <p>A page didicated for news.</p>
+                        <div class="project-image">
+                            <img src="image2/platformerGameImg.png" alt="platformer game Preview">
+                        </div>
+                        <h3>Platformer Game</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="news.html" target="_blank">
+                <a href="diceGame.html" target="_blank">
                     <div class="project-card">
-                        <h3>Penguin</h3>
-                        <p>A page didicated for news.</p>
+                        <div class="project-image">
+                            <img src="image2/diceGameImg.png" alt="dice game Preview">
+                        </div>
+                        <h3>Dice Game</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="news.html" target="_blank">
+                <a href="authorsPage.html" target="_blank">
                     <div class="project-card">
-                        <h3>Penguin</h3>
-                        <p>A page didicated for news.</p>
+                        <div class="project-image">
+                            <img src="image2/authorsPageImg.png" alt="fcc authors page Preview">
+                        </div>
+                        <h3>fCC Authors Page</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="news.html" target="_blank">
+                <a href="forumLeaderboard.html" target="_blank">
                     <div class="project-card">
-                        <h3>Penguin</h3>
-                        <p>A page didicated for news.</p>
+                        <div class="project-image">
+                            <img src="image2/forumImg.png" alt="fcc forum leaderboard Preview">
+                        </div>
+                        <h3>fCC Forum Leaderboard</h3>
                     </div>
                 </a>
             </div>
@@ -820,50 +944,60 @@
 
 
     <section class="projects" id="projects">
-        <h2>My Projects</h2>
+        <h2>Front End Development Libraries Certification Projects</h2>
         <div class="project-grid">
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="catphotoapp.html" target="_blank">
+                <a href="https://codepen.io/Olegario-III-Ale-o/pen/PwwPaeO" target="_blank">
                     <div class="project-card">
-                        <h3>Survey Form</h3>
-                        <p>First project in Responsive Web FCC</p>
+                        <div class="project-image">
+                            <img src="" alt="random qoute machine Preview">
+                        </div>
+                        <h3>Random Quote Machine</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="cafeMenu.html" target="_blank">
+                <a href="https://codepen.io/Olegario-III-Ale-o/pen/oggYGxE" target="_blank">
                     <div class="project-card">
-                        <h3>Tribute Page</h3>
-                        <p>A Website displaying Menu of a Cafe</p>
+                        <div class="project-image">
+                            <img src="" alt="markdown Preview Preview">
+                        </div>
+                        <h3>Markdown Previewer</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="colorMarker.html" target="_blank">
+                <a href="https://codepen.io/Olegario-III-Ale-o/pen/RNNZRme" target="_blank">
                     <div class="project-card">
-                        <h3>Technical Documentation Page</h3>
-                        <p>A project fucos on using color in css</p>
+                        <div class="project-image">
+                            <img src="" alt="drum machine Preview">
+                        </div>
+                        <h3>Drum Machine</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="registrationForm.html" target="_blank">
+                <a href="https://codepen.io/Olegario-III-Ale-o/pen/NPPveGK" target="_blank">
                     <div class="project-card">
-                        <h3>Produc Landing Page</h3>
-                        <p>A Registration form project</p>
+                        <div class="project-image">
+                            <img src="" alt="JavaScript calculator Preview">
+                        </div>
+                        <h3>JavaScript Calculator</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="surveyForm.html" target="_blank">
+                <a href="https://codepen.io/Olegario-III-Ale-o/pen/JooLpZO" target="_blank">
                     <div class="project-card">
-                        <h3>Personal Portfolio Webpage</h3>
-                        <p>An Html survey form project</p>
+                        <div class="project-image">
+                            <img src="" alt="25 + 5 clock Preview">
+                        </div>
+                        <h3>25 + 5 Clock</h3>
                     </div>
                 </a>
             </div>
@@ -877,56 +1011,66 @@
 
 
     <section class="projects" id="projects">
-        <h2>My Projects</h2>
+        <h2>Data Visualization Certification Projects</h2>
         <div class="project-grid">
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="catphotoapp.html" target="_blank">
+                <a href="https://codepen.io/Olegario-III-Ale-o/pen/gbbzdvm" target="_blank">
                     <div class="project-card">
-                        <h3>Survey Form</h3>
-                        <p>First project in Responsive Web FCC</p>
+                        <div class="project-image">
+                            <img src="" alt="bar chart Preview">
+                        </div>
+                        <h3>Bar Chart</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="cafeMenu.html" target="_blank">
+                <a href="https://codepen.io/Olegario-III-Ale-o/pen/vEErXxE" target="_blank">
                     <div class="project-card">
-                        <h3>Tribute Page</h3>
-                        <p>A Website displaying Menu of a Cafe</p>
+                        <div class="project-image">
+                            <img src="" alt="scatterplot graph Preview">
+                        </div>
+                        <h3>Scatterplot Graph</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="colorMarker.html" target="_blank">
+                <a href="https://codepen.io/Olegario-III-Ale-o/pen/OPPwPKm" target="_blank">
                     <div class="project-card">
-                        <h3>Technical Documentation Page</h3>
-                        <p>A project fucos on using color in css</p>
+                        <div class="project-image">
+                            <img src="" alt="heat map Preview">
+                        </div>
+                        <h3>Heat Map</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="registrationForm.html" target="_blank">
+                <a href="https://codepen.io/Olegario-III-Ale-o/pen/yyyxgrO" target="_blank">
                     <div class="project-card">
-                        <h3>Produc Landing Page</h3>
-                        <p>A Registration form project</p>
+                        <div class="project-image">
+                            <img src="" alt="Choropleth map Preview">
+                        </div>
+                        <h3>Choropleth Map</h3>
                     </div>
                 </a>
             </div>
             <div class="project-card-wrapper">
                 <div class="animated-border"></div>
-                <a href="surveyForm.html" target="_blank">
+                <a href="https://codepen.io/Olegario-III-Ale-o/pen/WbbgqyW" target="_blank">
                     <div class="project-card">
-                        <h3>Personal Portfolio Webpage</h3>
-                        <p>An Html survey form project</p>
+                        <div class="project-image">
+                            <img src="" alt="Treemap Diagram Preview">
+                        </div>
+                        <h3>Treemap Diagram</h3>
                     </div>
                 </a>
             </div>
         </div>
     </section>
- */
+
 
 
 

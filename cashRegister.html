@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash Register App</title>
+    <link rel="stylesheet" href="stylesRegister.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cash Register</h1>
+        <p>Item Price: $19.50</p>
+        <label for="cash">Enter Cash:</label>
+        <input type="number" id="cash" placeholder="Enter amount" min="0" step="0.01">
+        <button id="purchase-btn">Purchase</button>
+        <p id="change-due">Change Due: </p>
+    </div>
+
+    <script>
+        // Global Variables
+let price = 19.5; // Example price, will be updated dynamically
+let cid = [
+  ["PENNY", 1.01],
+  ["NICKEL", 2.05],
+  ["DIME", 3.1],
+  ["QUARTER", 4.25],
+  ["ONE", 90],
+  ["FIVE", 55],
+  ["TEN", 20],
+  ["TWENTY", 60],
+  ["ONE HUNDRED", 100],
+];
+
+// Currency Units
+const currencyUnits = [
+  ["PENNY", 0.01],
+  ["NICKEL", 0.05],
+  ["DIME", 0.1],
+  ["QUARTER", 0.25],
+  ["ONE", 1],
+  ["FIVE", 5],
+  ["TEN", 10],
+  ["TWENTY", 20],
+  ["ONE HUNDRED", 100],
+];
+
+// Button Click Handler
+document.getElementById("purchase-btn").addEventListener("click", function () {
+  let cash = parseFloat(document.getElementById("cash").value);
+  let result = checkCashRegister(price, cash, cid);
+  document.getElementById("change-due").innerText = formatChange(result);
+});
+
+function checkCashRegister(price, cash, cid) {
+  let changeDue = cash - price;
+  let totalCID = parseFloat(cid.reduce((sum, denom) => sum + denom[1], 0).toFixed(2));
+
+  if (changeDue < 0) {
+    alert("Customer does not have enough money to purchase the item");
+    return { status: "INSUFFICIENT_FUNDS", change: [] };
+  }
+
+  if (changeDue === 0) {
+    return "No change due - customer paid with exact cash";
+  }
+
+  if (totalCID === changeDue) {
+    return { status: "CLOSED", change: [...cid] };
+  }
+
+  let changeArray = [];
+  let remainingChange = changeDue;
+  let availableCID = JSON.parse(JSON.stringify(cid)).reverse(); // Reverse to get highest to lowest
+
+  for (let i = 0; i < availableCID.length; i++) {
+    let currencyName = availableCID[i][0];
+    let currencyValue = currencyUnits.find(([name]) => name === currencyName)[1];
+    let availableAmount = availableCID[i][1];
+
+    let amountToGive = 0;
+    while (remainingChange >= currencyValue && availableAmount > 0) {
+      remainingChange -= currencyValue;
+      remainingChange = Math.round(remainingChange * 100) / 100; // Fix floating points
+      availableAmount -= currencyValue;
+      amountToGive += currencyValue;
+    }
+
+    if (amountToGive > 0) {
+      changeArray.push([currencyName, parseFloat(amountToGive.toFixed(2))]);
+    }
+  }
+
+  let totalChangeGiven = parseFloat(changeArray.reduce((sum, denom) => sum + denom[1], 0).toFixed(2));
+
+  if (totalChangeGiven < changeDue || remainingChange > 0) {
+    return { status: "INSUFFICIENT_FUNDS", change: [] };
+  }
+
+  return { status: "OPEN", change: changeArray };
+}
+
+function formatChange(result) {
+  if (typeof result === "string") return result;
+
+  if (result.status === "INSUFFICIENT_FUNDS") {
+    return "Status: INSUFFICIENT_FUNDS";
+  } else if (result.status === "CLOSED") {
+    return `Status: CLOSED ${result.change
+      .filter(([_, amount]) => amount > 0)
+      .map(([name, amount]) => `${name}: $${amount.toFixed(2)}`)
+      .join(" ")}`;
+  } else {
+    return `Status: OPEN ${result.change
+      .map(([name, amount]) => `${name}: $${amount.toFixed(2)}`)
+      .join(" ")}`;
+  }
+}
+    </script>
+</body>
+</html>

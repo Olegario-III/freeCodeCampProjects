@@ -3,92 +3,179 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Build a random background color changer</title>
+    <title>Random Background Color Changer</title>
     <style>
-        *,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-:root {
-  --yellow: #f1be32;
-  --golden-yellow: #feac32;
-  --dark-purple: #110815;
-  --light-grey: #efefef;
-}
+      :root {
+        --yellow: #f1be32;
+        --golden-yellow: #feac32;
+        --dark-purple: #110815;
+        --light-grey: #efefef;
+      }
 
-body {
-  background-color: var(--dark-purple);
-  color: var(--light-grey);
-  text-align: center;
-}
+      body {
+        background-color: var(--dark-purple);
+        color: var(--light-grey);
+        text-align: center;
+        font-family: Arial, sans-serif;
+        transition: background-color 0.6s ease;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
 
-.bg-information-container {
-  margin: 15px 0 25px;
-  font-size: 1.2rem;
-}
+      h1 {
+        margin-bottom: 20px;
+      }
 
-.btn {
-  cursor: pointer;
-  padding: 10px;
-  margin: 10px;
-  color: var(--dark-purple);
-  background-color: var(--golden-yellow);
-  background-image: linear-gradient(#fecc4c, #ffac33);
-  border-color: var(--golden-yellow);
-  border-width: 3px;
-}
+      .bg-information-container {
+        margin: 15px 0 25px;
+        font-size: 1.2rem;
+      }
 
-.btn:hover {
-  background-image: linear-gradient(#ffcc4c, #f89808);
-}
+      .btn {
+        cursor: pointer;
+        padding: 12px 20px;
+        margin: 10px;
+        color: var(--dark-purple);
+        background-color: var(--golden-yellow);
+        background-image: linear-gradient(#fecc4c, #ffac33);
+        border: 2px solid var(--golden-yellow);
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: transform 0.2s, background-image 0.3s;
+      }
 
+      .btn:hover {
+        background-image: linear-gradient(#ffcc4c, #f89808);
+        transform: scale(1.05);
+      }
+
+      .color-history {
+        margin-top: 20px;
+      }
+
+      .color-history h2 {
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+      }
+
+      .history-colors {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .history-box {
+        width: 40px;
+        height: 40px;
+        border: 2px solid #fff;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .copied {
+        margin-top: 10px;
+        font-size: 0.9rem;
+        color: var(--yellow);
+      }
     </style>
   </head>
   <body>
-    <h1>Random Background Color changer</h1>
+    <h1>🎨 Random Background Color Changer</h1>
 
     <main>
       <section class="bg-information-container">
         <p>Hex Code: <span id="bg-hex-code">#110815</span></p>
+        <p>RGB Code: <span id="bg-rgb-code">17, 8, 21</span></p>
       </section>
 
       <button class="btn" id="btn">Change Background Color</button>
+      <button class="btn" id="copy-btn">Copy Color Code</button>
+      <p class="copied" id="copied-msg"></p>
+
+      <div class="color-history">
+        <h2>Recent Colors</h2>
+        <div class="history-colors" id="history"></div>
+      </div>
     </main>
+
     <script>
-        const darkColorsArr = [
-  "#2C3E50",
-  "#34495E",
-  "#2C2C2C",
-  "#616A6B",
-  "#4A235A",
-  "#2F4F4F",
-  "#0E4B5A",
-  "#36454F",
-  "#2C3E50",
-  "#800020",
-];
+      const darkColorsArr = [
+        "#2C3E50", "#34495E", "#2C2C2C", "#616A6B", "#4A235A",
+        "#2F4F4F", "#0E4B5A", "#36454F", "#800020", "#1A1A40",
+      ];
 
-function getRandomIndex() {
-  const randomIndex = Math.floor(darkColorsArr.length * Math.random());
-  return randomIndex;
-}
+      const body = document.querySelector("body");
+      const bgHexCodeSpan = document.querySelector("#bg-hex-code");
+      const bgRgbCodeSpan = document.querySelector("#bg-rgb-code");
+      const btn = document.querySelector("#btn");
+      const copyBtn = document.querySelector("#copy-btn");
+      const copiedMsg = document.querySelector("#copied-msg");
+      const historyContainer = document.querySelector("#history");
 
-const body = document.querySelector("body");
-const bgHexCodeSpanElement = document.querySelector("#bg-hex-code");
+      let history = [];
 
-function changeBackgroundColor() {
-  const color = darkColorsArr[getRandomIndex()];
+      function hexToRgb(hex) {
+        let bigint = parseInt(hex.slice(1), 16);
+        let r = (bigint >> 16) & 255;
+        let g = (bigint >> 8) & 255;
+        let b = bigint & 255;
+        return `${r}, ${g}, ${b}`;
+      }
 
-  bgHexCodeSpanElement.innerText = color;
-  body.style.backgroundColor = color;
-}
-const btn = document.querySelector("#btn");
+      function getRandomIndex() {
+        return Math.floor(darkColorsArr.length * Math.random());
+      }
 
-btn.onclick = changeBackgroundColor;
+      function changeBackgroundColor(color) {
+        const newColor = color || darkColorsArr[getRandomIndex()];
+        body.style.backgroundColor = newColor;
+        bgHexCodeSpan.innerText = newColor;
+        bgRgbCodeSpan.innerText = hexToRgb(newColor);
+
+        // Update history
+        if (!color) {
+          history.unshift(newColor);
+          if (history.length > 5) history.pop();
+          renderHistory();
+        }
+      }
+
+      function renderHistory() {
+        historyContainer.innerHTML = "";
+        history.forEach((color) => {
+          const div = document.createElement("div");
+          div.className = "history-box";
+          div.style.backgroundColor = color;
+          div.title = color;
+          div.onclick = () => changeBackgroundColor(color);
+          historyContainer.appendChild(div);
+        });
+      }
+
+      function copyColor() {
+        const colorCode = bgHexCodeSpan.innerText;
+        navigator.clipboard.writeText(colorCode).then(() => {
+          copiedMsg.innerText = `Copied ${colorCode} to clipboard!`;
+          setTimeout(() => (copiedMsg.innerText = ""), 2000);
+        });
+      }
+
+      btn.onclick = () => changeBackgroundColor();
+      copyBtn.onclick = copyColor;
+
+      // Initialize
+      changeBackgroundColor("#110815");
     </script>
   </body>
 </html>
