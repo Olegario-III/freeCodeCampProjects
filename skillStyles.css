@@ -1,0 +1,115 @@
+/* --- Skills Section --- */
+.skills-section {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 36px 20px;
+  background: var(--card-bg, #f9f9f9);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  color: var(--text-color, #222);
+}
+
+.skills-section h2 {
+  margin-top: 0;
+  font-size: 1.9rem;
+}
+
+.skills-section p { color: #666; margin-bottom: 18px; }
+
+/* Grid of skill cards */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+/* Individual card */
+.skill-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(250,250,250,0.95));
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  min-height: 200px;
+}
+
+/* Card heading */
+.skill-card h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.1rem;
+  color: #0a5969;
+}
+
+/* Skill row */
+.skill-list { display: flex; flex-direction: column; gap: 12px; }
+
+.skill {
+  display: grid;
+  grid-template-columns: 1fr 160px;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Skill name */
+.skill-name {
+  font-weight: 600;
+  font-size: 0.98rem;
+}
+
+/* Progress container */
+.progress {
+  position: relative;
+  height: 14px;
+  background: #e9e9e9;
+  border-radius: 999px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.04);
+}
+
+/* Animated inner bar */
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #00c4b4, #4A90E2);
+  transition: width 900ms cubic-bezier(.2,.9,.2,1);
+}
+
+/* Percentage label on the right */
+.progress-label {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #0b3b3a;
+}
+
+/* Small note under section */
+.skills-note {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Dark-mode support – matches your dark mode classes */
+body.dark-mode .skills-section {
+  background: #1e1e1e;
+  color: #eaeaea;
+  box-shadow: none;
+}
+
+body.dark-mode .skill-card {
+  background: linear-gradient(180deg, rgba(30,30,30,0.95), rgba(22,22,22,0.95));
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+body.dark-mode .skill-card h3 { color: #7bd0c8; }
+body.dark-mode .progress { background: #2a2a2a; }
+body.dark-mode .progress-label { color: #dfeff0; }
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .skill { grid-template-columns: 1fr 120px; }
+  .progress-label { right: 6px; font-size: 0.75rem; }
+}

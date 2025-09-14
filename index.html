@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Olegario's Portfolio</title>
+    <link rel="stylesheet" href="skillStyles.css">
     <style>
         html {
   scroll-behavior: smooth;
@@ -451,7 +452,8 @@ body.dark-mode .contact-form button {
             <a href="#intro">About</a>
             <a href="#projects">Projects</a>
             <a href="#certificate">Certificates</a>
-            <a href="#footer">Contact</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
         </nav>
     </header>
     <section id="pic">
@@ -1177,14 +1179,14 @@ body.dark-mode .contact-form button {
         <div class="cimg">
             <img src="image/responsive web.png" class="certificate" loading="lazy">
             <img src="image/js1certificate.PNG" class="certificate" loading="lazy">
-            <img src="image/HTML_certificate.jpg" class="certificate" loading="lazy">
-            <img src="image/Introduction to SQL_certificate.jpg" class="certificate" loading="lazy">
             <img src="image/Front_end_fcc.png" class="certificate" loading="lazy">
+            <img src="image/Data%20visualization%20fcc.png" class="certificate" loading="lazy">
             <img src="image/Introduction%20to%20JavaScript_certificate.jpg" class="certificate" loading="lazy">
             <img src="image/JavaScript Intermediate_certificate.jpg" class="certificate" loading="lazy">
+            <img src="image/HTML_certificate.jpg" class="certificate" loading="lazy">
+            <img src="image/Introduction to SQL_certificate.jpg" class="certificate" loading="lazy">
+            <img src="image/SQL Intermediate_certificate.jpg" class="certificate" loading="lazy">
             <img src="image/SEO with AI_certificate.jpg" class="certificate" loading="lazy">
-            <img src="image/Data%20visualization%20fcc.png" class="certificate" loading="lazy">
-            <img src="image/SQL%20Intermediate_certificate.jpg" class="certificate" loading="lazy">
             <img src="image/Vibe%20Coding_certificate.jpg" class="certificate" loading="lazy">
             <img src="image/Project%20Planning%20with%20AI_certificate.jpg" class="certificate" loading="lazy">
             <img src="image/Brainstorm%20with%20AI_certificate.jpg" class="certificate" loading="lazy">
@@ -1192,9 +1194,122 @@ body.dark-mode .contact-form button {
             <img src="image/Think Creatively with AI_certificate.jpg" class="certificate" loading="lazy">
             <img src="image/Research with AI_certificate.jpg" class="certificate">
             <img src="image/Social Media Marketing with AI_certificate.jpg" class="certificate">
-            <img src="image/Think Creatively with AI_certificate.jpg" class="certificate">
+            <img src="image/Ethical AI Foundations_certificate.jpg" class="certificate">
         </div>
     </section>
+
+
+
+    <section id="skills" class="skills-section">
+  <h2>🛠️ Skills</h2>
+  <p>Technologies and tools I use most. Levels show my current comfort — I keep practicing and improving.</p>
+
+  <div class="skills-grid">
+    <!-- Skill card: Front-end -->
+    <div class="skill-card">
+      <h3>Front-end</h3>
+      <div class="skill-list">
+        <div class="skill">
+          <span class="skill-name">HTML</span>
+          <div class="progress" data-level="95">
+            <div class="progress-bar"></div>
+            <span class="progress-label">95%</span>
+          </div>
+        </div>
+
+        <div class="skill">
+          <span class="skill-name">CSS</span>
+          <div class="progress" data-level="92">
+            <div class="progress-bar"></div>
+            <span class="progress-label">92%</span>
+          </div>
+        </div>
+
+        <div class="skill">
+          <span class="skill-name">JavaScript</span>
+          <div class="progress" data-level="80">
+            <div class="progress-bar"></div>
+            <span class="progress-label">80%</span>
+          </div>
+        </div>
+
+        <div class="skill">
+          <span class="skill-name">React</span>
+          <div class="progress" data-level="40">
+            <div class="progress-bar"></div>
+            <span class="progress-label">40%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skill card: Tools -->
+    <div class="skill-card">
+      <h3>Tools & Workflow</h3>
+      <div class="skill-list">
+        <div class="skill">
+          <span class="skill-name">Git / GitHub</span>
+          <div class="progress" data-level="78">
+            <div class="progress-bar"></div>
+            <span class="progress-label">78%</span>
+          </div>
+        </div>
+
+        <div class="skill">
+          <span class="skill-name">VS Code</span>
+          <div class="progress" data-level="85">
+            <div class="progress-bar"></div>
+            <span class="progress-label">85%</span>
+          </div>
+        </div>
+
+        <div class="skill">
+          <span class="skill-name">Figma (basic)</span>
+          <div class="progress" data-level="50">
+            <div class="progress-bar"></div>
+            <span class="progress-label">50%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skill card: Other -->
+    <div class="skill-card">
+      <h3>Other</h3>
+      <div class="skill-list">
+        <div class="skill">
+          <span class="skill-name">SQL (basic)</span>
+          <div class="progress" data-level="40">
+            <div class="progress-bar"></div>
+            <span class="progress-label">40%</span>
+          </div>
+        </div>
+
+        <div class="skill">
+          <span class="skill-name">D3 / Data Viz (learning)</span>
+          <div class="progress" data-level="35">
+            <div class="progress-bar"></div>
+            <span class="progress-label">35%</span>
+          </div>
+        </div>
+
+        <div class="skill">
+          <span class="skill-name">Problem Solving</span>
+          <div class="progress" data-level="85">
+            <div class="progress-bar"></div>
+            <span class="progress-label">85%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="skills-note">Tip: values are self-assessed and updated as I learn more.</p>
+</section>
+
+
+
+
 
     <section id="contact" class="contact">
   <h2>📬 Contact Me</h2>
@@ -1264,6 +1379,35 @@ form.addEventListener("submit", async function(event) {
   }
 });
 </script>
+<script>
+  // animate skill bars when section enters viewport
+  (function() {
+    const skillsSection = document.getElementById('skills');
+    if (!skillsSection) return;
+
+    const bars = skillsSection.querySelectorAll('.progress');
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          bars.forEach(bar => {
+            const level = bar.dataset.level || '0';
+            const inner = bar.querySelector('.progress-bar');
+            const label = bar.querySelector('.progress-label');
+            // set width (animate via CSS transition)
+            inner.style.width = level + '%';
+            // update numeric label (in case you want to animate numbers later)
+            label.textContent = level + '%';
+          });
+          obs.unobserve(entry.target); // animate once
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(skillsSection);
+  })();
+</script>
+
 </body>
 
 </html>
